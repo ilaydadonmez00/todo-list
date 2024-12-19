@@ -1,0 +1,11 @@
+version: '3.8'  # version used for compose
+services:
+  todo-app:  # service name
+    build:
+      context: .  # folder where dockerfile is located
+    ports:
+      - "5000:5000"  #match the local port to the port inside the container
+    volumes:
+      - .:/app  # synchronize project folder with container
+    command: flask run --host=0.0.0.0  # start the flask
+
